@@ -254,7 +254,7 @@ run(fileNames.map(function(fileName) {
         // Apply Brotli on minified output
         function(done) {
           readBuffer(info.filePath, function(data) {
-            var output = Buffer.from(brotli.compress(data, true).buffer);
+            var output = Buffer.from(brotli.compress(data, true));
             writeBuffer(info.brFilePath, output, function() {
               info.brTime = Date.now();
               // Open and read the size of the minified+brotli output
